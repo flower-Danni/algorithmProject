@@ -1,28 +1,23 @@
-package com.example.myapplication;
+package com.example.myapplication.Algorithm;
 
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
-public class Test {
+public class CalculateStatistics {
 
     public static void main(String[] args) {
-//        String contentStr = "aaa,abc,aa,abc,ad,ad,aaa,aaa,aaa,abc,aa";
-//        sortData(contentStr);
-
-        String str1 = "abcbc";
-        String str2 = "abc";
-        int length = minLength(str1, str2);
-        System.out.println("length："+ length);
-
+//        sortData();
+        minLength();
     }
 
-    private static void sortData(String originalStr) {
+    /**
+     * 根据字符串按照出现的次数由大到小进行排序
+     */
+    private static void sortData() {
+        String originalStr = "aa,bbc,dd,ff,ab,ac,dd,ab,13,eee";
         String[] original = originalStr.split(",");
         HashMap<String, Integer> hashMap = new HashMap<>();
         for (int i = 0; i < original.length; i++) {
@@ -43,8 +38,12 @@ public class Test {
         System.out.println(list.toString());
     }
 
-
-    public static int minLength(String str1, String str2) {
+    /**
+     *
+     */
+    public static int minLength() {
+        String str1 = "abcdsefg";
+        String str2 = "abc";
         if (str1 == null || str2 == null || str1.length() < str2.length()) {
             return 0;
         }
@@ -71,8 +70,8 @@ public class Test {
                 //只要进入该方法就表示chas2在chas1中的所有数据都已经判断完毕
                 while (arr[chas1[left]] < 0) {
                     //表示chas1第一个数字存在的位置即left值
-//                    arr[chas1[left++]]++;
-                    arr[chas1[left]]++;
+                    //arr[chas1[left++]]++;
+//                    arr[chas1[left]]++;
                     left++;
                 }
                 System.out.println("数据2："+right + "=="+left);
