@@ -2,6 +2,8 @@ package Node;
 
 import Node.Bean.NodeBean;
 
+import javax.print.event.PrintEvent;
+
 public class NodeTest {
 
     public static void main(String[] args) {
@@ -27,14 +29,19 @@ public class NodeTest {
         NodeBean nodeBean10 = new NodeBean(10);
         nodeBean8.next = nodeBean9;
         nodeBean9.next = nodeBean10;
-        nodeBean10.next = nodeBean3;
-        NodeBean nodeBean =  NodeUtil.getCommonNodeBean(nodeBean1,nodeBean8);
-        if (nodeBean == null){
-            System.out.println("表示没有公共的节点");
-        }else {
-            System.out.println(nodeBean.data);
-        }
+//        NodeBean nodeBean =  NodeUtil.getCommonNodeBean(nodeBean1,nodeBean8);
+//        if (nodeBean == null){
+//            System.out.println("表示没有公共的节点");
+//        }else {
+//            System.out.println(nodeBean.data);
+//        }
 
+        NodeBean reserveNodeBean = NodeUtil.getReserveNodeList(nodeBean8);
+        while (reserveNodeBean != null) {
+            System.out.println(reserveNodeBean.data);
+            reserveNodeBean = reserveNodeBean.next;
+        }
+//        System.out.println(reserveNodeBean.data);
 
     }
 

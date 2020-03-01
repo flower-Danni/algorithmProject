@@ -65,7 +65,7 @@ public class NodeUtil {
         }
         int nodeCount1 = 1;
         int nodeCount2 = 1;
-        NodeBean ph1 =headNode1;
+        NodeBean ph1 = headNode1;
         NodeBean ph2 = headNode2;
         while (ph1.next != null) {
             nodeCount1++;
@@ -110,15 +110,15 @@ public class NodeUtil {
         int diff = nodeCount1 - nodeCount2;
         NodeBean longNode = headNode1;
         NodeBean shortNode = headNode2;
-        if (diff < 0){
+        if (diff < 0) {
             longNode = headNode2;
             shortNode = headNode1;
         }
-        for (int i = 0 ; i < Math.abs(diff);i++){
+        for (int i = 0; i < Math.abs(diff); i++) {
             longNode = longNode.next;
         }
-        while (longNode.next != null){
-            if (longNode.data == shortNode.data){
+        while (longNode.next != null) {
+            if (longNode.data == shortNode.data) {
                 return longNode;
             }
             longNode = longNode.next;
@@ -128,6 +128,24 @@ public class NodeUtil {
     }
 
 
+    /**
+     * 链表的反转
+     */
+    public static NodeBean getReserveNodeList(NodeBean head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        NodeBean pre = head;
+        NodeBean cur = head.next;
+        while (cur != null) {
+            NodeBean temp = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = temp;
+        }
+        head.next = null;
+        return pre;
+    }
 
 
 }
