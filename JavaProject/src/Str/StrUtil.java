@@ -1,5 +1,7 @@
 package Str;
 
+import java.util.Arrays;
+
 public class StrUtil {
 
     /**
@@ -32,4 +34,47 @@ public class StrUtil {
 //        }
         return true;
     }
+
+    /**
+     * 字符串反转
+     * 方法一 时间复杂度为O(n)
+     */
+    public static String getReserveLetter(String str) {
+        if (str == null || str.isEmpty()) {
+            return "";
+        }
+        StringBuilder stringBuilder = new StringBuilder();
+        int length = str.length();
+        for (int i = 0; i < length; i++) {
+            char letter = str.charAt(length - i - 1);
+            stringBuilder.append(letter);
+        }
+        return stringBuilder.toString();
+    }
+
+    /**
+     * 字符串反转
+     * 方法二 时间复杂度为O(n/2)
+     */
+    public static String getReserveLetter2(String str) {
+        if (str == null || str.isEmpty()) {
+            return "";
+        }
+        int length = str.length();
+        char[] arr = str.toCharArray();
+        int head = 0;
+        int foot = length - 1;
+        int count = 0;
+        for (;head<foot; head++,foot--) {
+            count++;
+            System.out.println("运行次数："+count);
+            char temp = arr[head];
+            arr[head] = arr[foot];
+            arr[foot] = temp;
+        }
+        return Arrays.toString(arr);
+    }
+
+
+
 }

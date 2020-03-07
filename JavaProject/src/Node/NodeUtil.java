@@ -147,5 +147,22 @@ public class NodeUtil {
         return pre;
     }
 
+    /**
+     * 构建一个链表将头节点返回回来
+     */
+    public static NodeBean getHeadNode(int count) {
+        if (count < 0) {
+            return null;
+        }
+        NodeBean head = new NodeBean(0);
+        NodeBean p = head;
+        for (int i = 0; i < count; i++) {
+            NodeBean nodeBean = new NodeBean(i + 1);
+            p.next = nodeBean;
+            p = p.next;
+        }
+        return head;
+    }
+
 
 }
