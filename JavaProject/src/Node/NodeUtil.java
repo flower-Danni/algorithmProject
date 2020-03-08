@@ -164,5 +164,55 @@ public class NodeUtil {
         return head;
     }
 
+    /**
+     * 删除链表中某个元素
+     */
+    public static NodeBean deleteNode(NodeBean head, int value) {
+        if (head == null) {
+            return null;
+        }
+        if (head.data == value) {
+            return head.next;
+        }
+        NodeBean p = head;
+        while (p.next != null) {
+            if (p.next.data == value) {
+                p.next = p.next.next;
+            }
+            p = p.next;
+        }
+        return head;
+    }
+
+    /**
+     * 删除有序（数值从小到大）链表中的重复的元素
+     */
+    public static NodeBean deleteRepeatNode(NodeBean head) {
+        //只存在一个节点或者节点为空
+        if (head == null || head.next == null) {
+            return head;
+        }
+        NodeBean nodeFirst = new NodeBean(0);
+        nodeFirst.next = head;
+        NodeBean p = nodeFirst;
+        NodeBean q = head;
+        while (p != null  && q.next != null) {
+            if (q.data == q.next.data){
+                while (q.data == q.next.data) {
+                    q = q.next;
+                }
+                //删除所有重复元素
+//                p.next = q.next;
+                //删除重复元素并且保留一个
+                p.next = q;
+                p.next = q.next;
+                p = q;
+            }else {
+                p = p.next;
+            }
+            q = q.next;
+        }
+        return nodeFirst.next;
+    }
 
 }
