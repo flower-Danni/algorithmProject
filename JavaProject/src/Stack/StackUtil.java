@@ -4,7 +4,6 @@ import Stack.bean.QueueStack;
 import Stack.bean.StackQueue;
 
 import java.util.Random;
-import java.util.Stack;
 
 public class StackUtil {
 
