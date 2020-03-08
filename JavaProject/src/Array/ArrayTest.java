@@ -13,7 +13,7 @@ public class ArrayTest {
 
 
     private static void sortArray(){
-        int[] nums = new int[]{2,1,7,9,5,8};
+        int[] nums = new int[]{4,3,0,9,5,8};
         System.out.println("原数据："+ Arrays.toString(nums));
         //冒泡排序
 //        SortUtil.dubbleSort(nums);

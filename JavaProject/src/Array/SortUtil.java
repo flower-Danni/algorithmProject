@@ -28,20 +28,40 @@ public class SortUtil {
 
     /**
      * 插入排序
+     * 空间复杂度为O(1)
+     * 时间复杂度 最好的情况O(n) 最快的情况O(n^2) (n-1)n/2
      */
-    public static void insetSort(int[] nums){
+    public static void insetSort(int[] nums) {
+        for (int i = 1; i < nums.length; i++) {//比较多少趟
+            int current = nums[i];//未进行分区的数据
+            System.out.println("current:" + current);
+            int j = i - 1;
+            for (; j >= 0 && nums[j] > current; j--) {
+                //进行数据的交换
+                nums[j + 1] = nums[j];
+            }
+            nums[j + 1] = current;
+        }
+        System.out.println("插入排序之后的数据：" + Arrays.toString(nums));
+    }
 
+    /**
+     * 归并排序
+     */
+    public static void mergeSore(){
+        
     }
 
 
     /**
      * 选择排序
+     *
      * @param nums
      */
-    public static void selectSort(int[] nums){
-        for (int i = 0 ; i < nums.length - 1;i++){
+    public static void selectSort(int[] nums) {
+        for (int i = 0; i < nums.length - 1; i++) {
             int index = i;
-            for (int j = i + 1 ; j < nums.length;j++) {
+            for (int j = i + 1; j < nums.length; j++) {
                 if (nums[j] < nums[index]) {
                     index = j;
                 }
@@ -51,9 +71,9 @@ public class SortUtil {
                 nums[index] = nums[i];
                 nums[i] = temp;
             }
-            System.out.println("第"+i+"趟排序结果："+ Arrays.toString(nums));
+            System.out.println("第" + i + "趟排序结果：" + Arrays.toString(nums));
         }
-        System.out.println("插入排序之后的数据："+Arrays.toString(nums));
+        System.out.println("选择排序之后的数据：" + Arrays.toString(nums));
     }
 }
 
