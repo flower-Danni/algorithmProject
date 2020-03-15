@@ -48,8 +48,38 @@ public class SortUtil {
     /**
      * 归并排序
      */
-    public static void mergeSore(){
-        
+    public static void mergeSort(int[] nums,int lo,int hi){
+        if (lo > hi) return;
+        int mid = lo + (hi - lo)/2;
+        mergeSort(nums,lo,mid);//分别递归将左数据排好序
+        System.out.println(Arrays.toString(nums));
+        mergeSort(nums,mid+1,hi);//分别递归将右数据排好序
+        System.out.println(Arrays.toString(nums));
+        merge(nums,lo,mid,hi);
+        System.out.println(Arrays.toString(nums));
+    }
+
+    //将数据进行合并
+    private static void merge(int[] nums,int lo,int mid,int hi){
+        //不仅仅需要改变左右两边的数据，并且需要修改原来的数组防止出现错误，所以clone一个数组
+        int[] copy = nums.clone();
+        int k = lo;//从哪个位置开始修改
+        int i = lo;//左半边的开始位置
+        int j = mid + 1;//表示右半边的开始位置
+        while (k <= hi){
+            if (i > mid){
+               nums[k++]  = copy[j++];
+            }else if (j > hi){
+                nums[k++] = copy[i++];
+            }else if (copy[j] < copy[i]){
+                nums[k++] = copy[j++];
+            }else {
+                nums[k++] = copy[i++];
+            }
+        }
+
+
+
     }
 
 

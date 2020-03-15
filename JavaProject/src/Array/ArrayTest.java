@@ -18,6 +18,8 @@ public class ArrayTest {
         //冒泡排序
 //        SortUtil.dubbleSort(nums);
         //插入排序
-        SortUtil.insetSort(nums);
+//        SortUtil.insetSort(nums);
+        //归并排序
+        SortUtil.mergeSort(nums,0,nums.length - 1);
     }
 }
