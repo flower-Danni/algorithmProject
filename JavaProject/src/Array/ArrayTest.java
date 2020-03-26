@@ -8,7 +8,14 @@ public class ArrayTest {
     public static void main(String[] args) {
 //        boolean isHasString =  ArrayUtil.getTwoDimensionalOrderedArray();
 //        System.out.println(isHasString?"二维数组包含字符串":"二维数组不包含字符串");
-        sortArray();
+
+//        sortArray();
+//       System.out.println(ArrayUtil.getNumberN(10)); ;
+       int[] nums1 = {1,2,2,3,4,8,8,8,9,9};
+       int[] nums2 = {2};
+       System.out.println(Arrays.toString(nums1));
+//       System.out.println(Arrays.toString(ArrayUtil.twoSum(nums,9)));
+        System.out.println(ArrayUtil.removeDuplicates(nums1));
     }
 
 
@@ -20,6 +27,6 @@ public class ArrayTest {
         //插入排序
 //        SortUtil.insetSort(nums);
         //归并排序
-        SortUtil.mergeSort(nums,0,nums.length - 1);
+//        SortUtil.mergeSort(nums,0,nums.length - 1);
     }
 }

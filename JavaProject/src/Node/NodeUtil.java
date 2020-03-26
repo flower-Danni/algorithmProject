@@ -148,6 +148,20 @@ public class NodeUtil {
     }
 
     /**
+     * 翻转链转相邻的两个节点
+     * 1->2->3>4
+     * 2->1->4->3
+     * https://blog.csdn.net/qq_40590014/article/details/90545213?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task
+     */
+    public static NodeBean getAdjacentNode(NodeBean head){
+        if (head == null || head.next == null){
+            return head;
+        }
+        return head;
+
+    }
+
+    /**
      * 构建一个链表将头节点返回回来
      */
     public static NodeBean getHeadNode(int count) {

@@ -1,5 +1,7 @@
 package Str;
 
+import sun.tools.jconsole.JConsole;
+
 import java.util.Arrays;
 
 public class StrUtil {
@@ -75,6 +77,38 @@ public class StrUtil {
         return Arrays.toString(arr);
     }
 
+    public static int getReserveLetter3(int num){
+        if (num > 0){
+           return reserveNum(num);
+        }else {
+           return -reserveNum(Math.abs(num));
+        }
+    }
+
+    private static int reserveNum(int num){
+        int result = 0;
+        while (true){
+            int n = num%10;
+            result = result*10+n;
+            num = num/10;
+            if (num == 0){
+                return result;
+            }
+        }
+    }
+
+    public static int stringToInt(String str){
+        if (str == null || str.isEmpty()){
+            return 0;
+        }
+        char[] chars = str.toCharArray();
+        int result = 0;
+        for (int  i = chars.length-1 ; i >= 0 ;i--){
+            result = result * 10 + (chars[i] - '0');
+            System.out.println("结果："+ result);
+        }
+        return result;
+    }
 
 
 }
